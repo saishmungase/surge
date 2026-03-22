@@ -109,11 +109,11 @@ func runAttack(method, targetUrl, body string, totalRequests int, concurrency in
 		wg.Wait()
 		close(results)
 	}()
-	totalDuration := time.Since(attackStart)
-	processResults(results, totalRequests, totalDuration)
+	
+	processResults(results, totalRequests, attackStart)
 }
 
-func processResults(results <- chan Result, total int, totalDuration time.Duration){
+func processResults(results <- chan Result, total int, attackStart time.Time){
 	var durations []time.Duration
 	successCount := 0
 	errorCount := 0
@@ -126,7 +126,7 @@ func processResults(results <- chan Result, total int, totalDuration time.Durati
 		}
 		durations = append(durations, res.Duration)
 	}
-
+	totalDuration := time.Since(attackStart)
 	sort.Slice(durations, func(i, j int) bool {
 		return durations[i] < durations[j]
 	})
