@@ -9,7 +9,7 @@ Surge is designed to test the limits of your distributed systems and APIs. It by
 ### Option 1: Using Go (Recommended)
 If you already have Go installed on your machine, you can install Surge globally in one command:
 ```bash
-go install [github.com/saishmungase/surge@latest](https://github.com/saishmungase/surge@latest)
+go install https://github.com/saishmungase/surge@latest
 ```
 
 ### Option 2: Pre-compiled Binaries
