@@ -23,13 +23,13 @@ Surge uses a simple `attack` command to start the load test.
 **Basic GET Request Load Test:**
 Hit an API with 500 requests, keeping 50 requests in-flight concurrently.
 ```bash
-surge attack --url [https://api.github.com/zen](https://api.github.com/zen) --requests 500 --concurrency 50
+surge attack --url https://api.demo.com/route --requests 500 --concurrency 50
 ```
 
 **Testing POST Routes with JSON Payloads:**
 Surge fully supports custom HTTP methods and JSON bodies for testing complex endpoints.
 ```bash
-surge attack --url [https://api.example.com/data](https://api.example.com/data) \
+surge attack --url https://api.demo.com/route \
   --method POST \
   --body '{"title": "test", "userId": 1}' \
   --requests 100 \
